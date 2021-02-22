@@ -1,0 +1,86 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+elk:
+  lookup:
+    hostuser:
+      name: vagrant
+      group: vagrant
+    pod:
+      network:
+        subnet: 10.77.1.0/24
+        gateway: 10.77.1.1
+        domain_name: elknet
+    elasticsearch:
+      port:
+        requests:
+          container: 9200
+          host: 9200
+          ip: 0.0.0.0
+        node_communications:
+          container: 9300
+          host: 9300
+          ip: 0.0.0.0
+      ymlcfg:
+        cluster.name: podman-cluster
+        network.host: 0.0.0.0
+        discovery.type: single-node
+        bootstrap.memory_lock: true
+        xpack.security.enabled: true
+      java_opts: '-Xms512m -Xmx512m'
+      resources:
+        requests:
+          memory: 1200Mi
+        limits:
+          memory: 1200Mi
+    logstash:
+      port:
+        webapi:
+          container: 9600
+          host: 9600
+          ip: 0.0.0.0
+        beats:
+          container: 5044
+          host: 5044
+          ip: 0.0.0.0
+      confcfg:
+        output:
+          elasticsearch:
+            hosts:
+              - http://elasticsearch-pod:9200
+            index: '%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}'
+            user: elastic
+            password: abcde12345
+      ymlcfg:
+        node.name: logstash-pod
+        path.config: /usr/share/logstash/config/logstash.conf
+        pipeline.workers: 1
+        log.level: info
+        http.host: 0.0.0.0
+        xpack.monitoring.enabled: true
+        xpack.monitoring.elasticsearch.hosts:
+          - "http://elasticsearch-pod:9200"
+      resources:
+        requests:
+          memory: 1200Mi
+        limits:
+          memory: 1200Mi
+    kibana:
+      port:
+        server:
+          container: 5601
+          host: 5601
+          ip: 0.0.0.0
+      resources:
+        requests:
+          memory: 800Mi
+        limits:
+          memory: 800Mi
+    ymlcfg:
+      server.name: kibana-pod
+      server.host: "0"
+      elasticsearch.hosts:
+        - http://elasticsearch-pod:9200
+      elasticsearch.username: elastic
+      elasticsearch.password: abcde12345
+      monitoring.ui.container.elasticsearch.enabled: true
