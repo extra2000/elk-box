@@ -4,3 +4,6 @@
 [submodule "salt/roots/formulas/elk-formula"]
 	path = salt/roots/formulas/elk-formula
 	url = https://github.com/extra2000/elk-formula.git
+[submodule "salt/roots/formulas/nginx-formula"]
+	path = salt/roots/formulas/nginx-formula
+	url = https://github.com/extra2000/nginx-formula.git
