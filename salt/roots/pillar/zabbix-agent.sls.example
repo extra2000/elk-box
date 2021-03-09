@@ -7,7 +7,11 @@ zabbix_agent:
       name: vagrant
       group: vagrant
     config:
-      hostname: zabbix-agent-box
-      server:
-        host: zabbix-box
-        port: 10050
+      hostname: elk-box
+      passive_check:
+        accepted_servers: "zabbix-box"
+        listen_ip: 0.0.0.0
+        listen_port: 10050
+        start_agents: 3
+      active_check:
+        servers: "zabbix-box:10051"
