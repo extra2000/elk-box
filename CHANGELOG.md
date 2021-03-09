@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.1](https://github.com/extra2000/elk-box/compare/v2.0.0...v2.0.1) (2021-03-09)
+
+
+### Fixes
+
+* **submodule:** Update `zabbix-agent-formula` to [v2.0.1](https://github.com/extra2000/zabbix-agent-formula/releases/tag/v2.0.1) which fixes SELinux permissions ([abcbe49](https://github.com/extra2000/elk-box/commit/abcbe497be411cb634ab32a92b1aabf5940d295d))
+
 ## [2.0.0](https://github.com/extra2000/elk-box/compare/v1.0.0...v2.0.0) (2021-03-09)
 
 
