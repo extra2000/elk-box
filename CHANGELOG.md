@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/extra2000/elk-box/compare/v1.0.0...v2.0.0) (2021-03-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **submodule, pillar:** Pillar format in `salt/roots/pillar/zabbix-agent.sls.example` has changed.
+
+### Features
+
+* **submodule, pillar:** Update `zabbix-agent-formula` to [v2.0.0](https://github.com/extra2000/zabbix-agent-formula/releases/tag/v2.0.0) ([6052b9f](https://github.com/extra2000/elk-box/commit/6052b9fb667d3a9f4a83102b2f4a62579c5227e5))
+
 ## 1.0.0 (2021-03-07)
 
 
