@@ -49,7 +49,7 @@ elk:
             hosts:
               - http://elasticsearch-pod:9200
             index: '%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}'
-            user: elastic
+            user: logstash_internal
             password: abcde12345
       ymlcfg:
         node.name: logstash-pod
@@ -81,6 +81,6 @@ elk:
       server.host: "0"
       elasticsearch.hosts:
         - http://elasticsearch-pod:9200
-      elasticsearch.username: elastic
+      elasticsearch.username: kibana_system
       elasticsearch.password: abcde12345
       monitoring.ui.container.elasticsearch.enabled: true
