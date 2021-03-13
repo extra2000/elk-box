@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.0](https://github.com/extra2000/elk-box/compare/v2.0.1...v2.1.0) (2021-03-13)
+
+
+### Features
+
+* **/etc/minion:** Using new style for `module.run` ([0f8b8f2](https://github.com/extra2000/elk-box/commit/0f8b8f21d67d1ef2bccb66d4e3a8385dcf002521))
+* **submodule:** Update `elk-formula` to [v1.1.0](https://github.com/extra2000/elk-formula/releases/tag/v1.1.0) ([daeb651](https://github.com/extra2000/elk-box/commit/daeb651cf918258e9a68f9bff679c4d0d3546135))
+
+
+### Documentations
+
+* **pillar/elk.sls.example:** Improve security by using non `elastic` user privileges ([bf14651](https://github.com/extra2000/elk-box/commit/bf14651c75e4d33a89d7dd99eb6fb7119faeb10b))
+* **README:** Improve deployment instructions and harden security ([1a581e1](https://github.com/extra2000/elk-box/commit/1a581e1de027c064687f284c9ed43ab635e90f93))
+
 ### [2.0.1](https://github.com/extra2000/elk-box/compare/v2.0.0...v2.0.1) (2021-03-09)
 
 
