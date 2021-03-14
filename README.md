@@ -30,7 +30,7 @@ $ vagrant ssh elk-box -- sudo salt-call state.highstate
 Configure ELK and NGINX:
 ```
 $ vagrant ssh elk-box -- sudo salt-call state.sls elk.config
-$ vagrant ssh elk-box -- sudo salt-call state.sls elk.config.nginx
+$ vagrant ssh elk-box -- sudo salt-call state.sls elk.config.nginx,nginx.service
 ```
 
 
