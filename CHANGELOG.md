@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/extra2000/elk-box/compare/v2.1.0...v2.2.0) (2021-03-14)
+
+
+### Features
+
+* **submodule:** Update `elk-formula` to [v1.1.1](https://github.com/extra2000/elk-formula/releases/tag/v1.1.1) which prevent pod networking conflicts ([686d60e](https://github.com/extra2000/elk-box/commit/686d60e74a76fd9c426214a384899904f77decb0))
+
+
+### Documentations
+
+* **pillar/elk.sls.example:** Add example how to set `bridge` for pod networking ([0e595f6](https://github.com/extra2000/elk-box/commit/0e595f6447402b30fdb7da23c08a5b3ca14e4a28))
+
 ## [2.1.0](https://github.com/extra2000/elk-box/compare/v2.0.1...v2.1.0) (2021-03-13)
 
 
