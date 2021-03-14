@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.3.0](https://github.com/extra2000/elk-box/compare/v2.2.0...v2.3.0) (2021-03-14)
+
+
+### Features
+
+* **submodule:** Update `elk-formula` to [v2.0.0](https://github.com/extra2000/elk-formula/releases/tag/v2.0.0) ([9086cb4](https://github.com/extra2000/elk-box/commit/9086cb43c1fca3ef923d16878aa3921b07b0d455))
+* **submodule:** Update `nginx-formula` to [v2.0.0](https://github.com/extra2000/nginx-formula/releases/tag/v2.0.0) ([9215f60](https://github.com/extra2000/elk-box/commit/9215f60a0ea448d923cb82b7454a9054f8f03cea))
+
+
+### Continuous Integrations
+
+* **AppVeyor:** Using example NGINX HTTPS conf file to prevent state error ([7161c3a](https://github.com/extra2000/elk-box/commit/7161c3a11306e4f1191f67257e0b29fd31608285))
+
+
+### Documentations
+
+* **README:** Update instruction for deploying NGINX ([7c368d5](https://github.com/extra2000/elk-box/commit/7c368d5ba4b0b150d32ad41691e11bcdc9bac735))
+
 ## [2.2.0](https://github.com/extra2000/elk-box/compare/v2.1.0...v2.2.0) (2021-03-14)
 
 
