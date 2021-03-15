@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.4.0](https://github.com/extra2000/elk-box/compare/v2.3.0...v2.4.0) (2021-03-15)
+
+
+### Features
+
+* **submodule:** Upgrade `elk-formula` to version [v2.1.0](https://github.com/extra2000/elk-formula/releases/tag/v2.1.0) ([85ba3b0](https://github.com/extra2000/elk-box/commit/85ba3b054476b75dd30951e73eb61f13bd3986df))
+
+
+### Documentations
+
+* **README:** Enable `Advanced Settings` in `minimal` space ([c21e986](https://github.com/extra2000/elk-box/commit/c21e986b7247542ee5872557227c5a769f876315))
+
 ## [2.3.0](https://github.com/extra2000/elk-box/compare/v2.2.0...v2.3.0) (2021-03-14)
 
 
