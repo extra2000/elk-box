@@ -73,6 +73,7 @@ Create a minimal space such as removing unused Kibana features. Go to `Stack Man
     * Logs
 * Management:
     * Index Pattern Management
+    * Advanced Settings
 
 Create a Kibana admin. Go to `Stack Management` > `Security` > `Users` and for example create a new user named `kadmin` with role `kibana_admin`.
 
