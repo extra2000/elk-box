@@ -76,6 +76,7 @@ Vagrant.configure("2") do |config|
     ## Uncomment these lines to forward port
     # elk_box.vm.network "forwarded_port", guest: 9200, host: 9200, protocol: "tcp"
     # elk_box.vm.network "forwarded_port", guest: 9600, host: 9600, protocol: "tcp"
+    # elk_box.vm.network "forwarded_port", guest: 5044, host: 5044, protocol: "tcp"
     # elk_box.vm.network "forwarded_port", guest: 443, host: 5601, protocol: "tcp"
 
     elk_box.vm.synced_folder "salt/roots/", "/srv/", type: "rsync"
