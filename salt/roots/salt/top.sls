@@ -1,6 +1,6 @@
 base:
   '*':
-    - zabbix_agent
     - swapoff
     - podman
     - nginx
+    - zabbix_agent
