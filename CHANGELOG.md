@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.0.0](https://github.com/extra2000/elk-box/compare/v2.4.0...v3.0.0) (2021-03-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **submodule:** Pillar format for `salt/roots/pillar/zabbix-agent.sls.example` has changed.
+
+### Features
+
+* **submodule:** Update `zabbix-agent-formula` to [v4.0.0](https://github.com/extra2000/zabbix-agent-formula/releases/tag/v4.0.0) ([5ad1daa](https://github.com/extra2000/elk-box/commit/5ad1daa602e25d9bfc41a72c32aa0a4962a2b4aa))
+
+
+### Documentations
+
+* **README:** Add `winlogbeat-*` index ([dd3a38d](https://github.com/extra2000/elk-box/commit/dd3a38dc591c253e1b62f53ec0b521e576165204))
+* **vagrant:** Add port forwarding example for Logstash port `5044` ([bd7cd82](https://github.com/extra2000/elk-box/commit/bd7cd82d387e9e44ed83af1f7f45249537d54b2c))
+
 ## [2.4.0](https://github.com/extra2000/elk-box/compare/v2.3.0...v2.4.0) (2021-03-15)
 
 
