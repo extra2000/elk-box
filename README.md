@@ -85,7 +85,6 @@ To create a Kibana read-only user, a custom read-only role named `user` must be 
     * Spaces: `minimal`
     * Privileges for all features: `Read`
 
-
 Go to `Stack Management` > `Security` > `Users` and create a new username with role `user`.
 
 
