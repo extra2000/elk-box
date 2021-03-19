@@ -87,6 +87,8 @@ To create a Kibana read-only user, a custom read-only role named `user` must be 
 
 Go to `Stack Management` > `Security` > `Users` and create a new username with role `user`.
 
+To prevent Kibana error `Unable to update ui setting, error code 403` for read-only users, go to `Stack Management` > `Index patterns` and set an `index` as default.
+
 
 ## Configuring Elasticsearch for Logstash permissions
 
