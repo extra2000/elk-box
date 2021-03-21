@@ -110,3 +110,24 @@ Deploy Logstash:
 ```
 $ vagrant ssh elk-box -- sudo salt-call state.sls elk.service.logstash
 ```
+
+
+## Database management
+
+To delete documents by query:
+```
+$ curl --user elastic:abcde12345 -X POST "localhost:9200/winlogbeat-*/_delete_by_query?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "match": {
+      "event.provider": "Service Control Manager"
+    }
+  }
+}
+'
+```
+
+To delete all documents in an index:
+```
+$ curl --user elastic:abcde12345 -X DELETE "localhost:9200/winlogbeat-*?pretty"
+```
