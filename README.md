@@ -58,6 +58,11 @@ Setup Metricbeat template:
 $ vagrant ssh elk-box -- podman run --rm --pod elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' docker.elastic.co/beats/metricbeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
 ```
 
+Setup Packetbeat template:
+```
+$ vagrant ssh elk-box -- podman run --rm --pod elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' --privileged docker.io/elastic/packetbeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
+```
+
 
 ## Deploying Kibana
 
@@ -90,7 +95,7 @@ Create a Kibana admin. Go to `Stack Management` > `Security` > `Users` and for e
 To create a Kibana read-only user, a custom read-only role named `user` must be created first. Go to `Stack Management` > `Security` > `Role` and `Create role` with the following information:
 * Role name: `user`
 * Index privileges:
-    * Indices: `filebeat-*`, `winlogbeat-*`, `metricbeat-*`, Privileges: `read`
+    * Indices: `filebeat-*`, `winlogbeat-*`, `metricbeat-*`, `packetbeat-*`, Privileges: `read`
 * Add Kibana privileges:
     * Spaces: `minimal`
     * Privileges for all features: `Read`
@@ -109,7 +114,7 @@ Go to `Stack Management` > `Security` > `Role` and `Create role` to create a new
     * `monitor`
     * `manage_ilm`
 * Index privileges:
-    * Indices: `logstash-*`, `filebeat-*`, `winlogbeat-*`, `metricbeat-*`, Privileges: `write`, `create`, `create_index`, `manage`, `manage_ilm`.
+    * Indices: `logstash-*`, `filebeat-*`, `winlogbeat-*`, `metricbeat-*`, `packetbeat-*`, Privileges: `write`, `create`, `create_index`, `manage`, `manage_ilm`.
 
 Create a new user named `logstash_internal` with role `logstash_writer`. Use password `abcde12345`.
 
