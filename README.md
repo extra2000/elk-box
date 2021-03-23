@@ -51,6 +51,14 @@ For testing purpose, use password `abcde12345` for all services as listed below.
 * `remote_monitoring_user`
 
 
+## Setup Templates
+
+Setup Metricbeat template:
+```
+$ vagrant ssh elk-box -- podman run --rm --pod elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' docker.elastic.co/beats/metricbeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
+```
+
+
 ## Deploying Kibana
 
 Deploy Kibana:
@@ -72,6 +80,7 @@ Create a minimal space such as removing unused Kibana features. Go to `Stack Man
     * Visualize
 * Observability:
     * Logs
+    * Metrics
 * Management:
     * Index Pattern Management
     * Advanced Settings
@@ -81,7 +90,7 @@ Create a Kibana admin. Go to `Stack Management` > `Security` > `Users` and for e
 To create a Kibana read-only user, a custom read-only role named `user` must be created first. Go to `Stack Management` > `Security` > `Role` and `Create role` with the following information:
 * Role name: `user`
 * Index privileges:
-    * Indices: `filebeat-*`, `winlogbeat-*`, Privileges: `read`
+    * Indices: `filebeat-*`, `winlogbeat-*`, `metricbeat-*`, Privileges: `read`
 * Add Kibana privileges:
     * Spaces: `minimal`
     * Privileges for all features: `Read`
@@ -100,7 +109,7 @@ Go to `Stack Management` > `Security` > `Role` and `Create role` to create a new
     * `monitor`
     * `manage_ilm`
 * Index privileges:
-    * Indices: `logstash-*`, `filebeat-*`, `winlogbeat-*` Privileges: `write`, `create`, `create_index`, `manage`, `manage_ilm`.
+    * Indices: `logstash-*`, `filebeat-*`, `winlogbeat-*`, `metricbeat-*`, Privileges: `write`, `create`, `create_index`, `manage`, `manage_ilm`.
 
 Create a new user named `logstash_internal` with role `logstash_writer`. Use password `abcde12345`.
 
