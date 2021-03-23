@@ -68,6 +68,7 @@ Login Kibana as `superuser` role, go to https://elk-box and use the following lo
 Create a minimal space such as removing unused Kibana features. Go to `Stack Management` > `Kibana` > `Spaces` and create a space named `minimal` with the following features only:
 * Kibana:
     * Discover
+    * Dashboard
     * Visualize
 * Observability:
     * Logs
