@@ -53,6 +53,11 @@ For testing purpose, use password `abcde12345` for all services as listed below.
 
 ## Setup Templates
 
+Setup Filebeat template:
+```
+$ vagrant ssh elk-box -- podman run --rm --pod elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' --privileged docker.elastic.co/beats/filebeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
+```
+
 Setup Metricbeat template:
 ```
 $ vagrant ssh elk-box -- podman run --rm --pod elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' docker.elastic.co/beats/metricbeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
