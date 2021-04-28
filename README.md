@@ -18,7 +18,7 @@ $ cp -v salt/roots/pillar/zabbix-agent.sls.example salt/roots/pillar/zabbix-agen
 
 Copy vagrant file from `vagrant/examples/` and then create the vagrant box (you can change to `--provider=libvirt` if you want to use Libvirt provider):
 ```
-$ cp -v vagrant/examples/Vagrantfile.elk-box.fedora-33.x86_64.example vagrant/Vagrantfile.elk-box
+$ cp -v vagrant/examples/Vagrantfile.elk-box.fedora-34.x86_64.example vagrant/Vagrantfile.elk-box
 $ vagrant up --provider=virtualbox
 ```
 
