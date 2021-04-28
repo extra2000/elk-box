@@ -132,6 +132,35 @@ $ vagrant ssh elk-box -- sudo salt-call state.sls elk.service.logstash
 ```
 
 
+## Create systemd units for auto startup on boot
+
+Generate systemd units for ELK pods and enable them:
+```
+$ cd ~/.config/systemd/user
+$ podman generate systemd --files --name elasticsearch-pod
+$ podman generate systemd --files --name logstash-pod
+$ podman generate systemd --files --name kibana-pod
+$ systemctl --user daemon-reload
+$ systemctl --user enable pod-elasticsearch-pod.service container-elasticsearch-pod-es01.service pod-logstash-pod.service container-logstash-pod-ls01.service pod-kibana-pod.service container-kibana-pod-k01.service
+```
+
+Generate systemd unit for `nginx-pod` and enable it:
+```
+$ cd ~/.config/systemd/user
+$ podman generate systemd --files --name nginx-pod
+$ systemctl --user daemon-reload
+$ systemctl --user enable pod-nginx-pod.service container-nginx-pod-srv01.service
+```
+
+Generate systemd unit for `zabbix-agent-pod` and enable it:
+```
+$ cd ~/.config/systemd/user
+$ podman generate systemd --files --name zabbix-agent-pod
+$ systemctl --user daemon-reload
+$ systemctl --user enable pod-zabbix-agent-pod.service container-zabbix-agent-pod-agent.service
+```
+
+
 ## Database management
 
 To delete documents by query:
