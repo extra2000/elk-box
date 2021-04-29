@@ -1,5 +1,37 @@
 # Changelog
 
+## [3.1.0](https://github.com/extra2000/elk-box/compare/v3.0.0...v3.1.0) (2021-04-29)
+
+
+### Features
+
+* **elk-formula:** Upgrade from `v2.1.0` to `v2.2.0` ([ed1031c](https://github.com/extra2000/elk-box/commit/ed1031c800f803f784b8798f9fe412f7b5706187))
+* **vagrant:** Add Fedora 34 `x86_64` Vagrant file ([8a1a125](https://github.com/extra2000/elk-box/commit/8a1a1256120c05b039a1d5dcdbb9c0aa02503150))
+* **vagrant:** Upgrade CentOS Stream from `v20201217.0` to `v20210210.0` ([7577143](https://github.com/extra2000/elk-box/commit/757714305cf5c7e5236052e0763163e32802bc53))
+* **vagrant:** Upgrade SaltStack from `v3002.2` to `v3003` ([c4b114c](https://github.com/extra2000/elk-box/commit/c4b114c5f292b2455496f5505115377d0013fe33))
+
+
+### Styles
+
+* **README:** Remove extra spacing ([6d139a0](https://github.com/extra2000/elk-box/commit/6d139a0fd406c0c3bc77029e74ca3715068d2574))
+
+
+### Fixes
+
+* **podman-formula:** Patch update from `v2.2.1` to [v2.2.2](https://github.com/extra2000/podman-formula/releases/tag/v2.2.2) ([bf9b3e7](https://github.com/extra2000/elk-box/commit/bf9b3e76db9b490819b3d66445baf7ecdce8fbc0))
+
+
+### Documentations
+
+* **README:** Add `Dashboard` ([da98c68](https://github.com/extra2000/elk-box/commit/da98c682cb8244efed8eac752c6ec11d4756e51f))
+* **README:** Add example how to delete document and index ([f1cb17c](https://github.com/extra2000/elk-box/commit/f1cb17c035e720d85f22387d498d1011269a5349))
+* **README:** Add instructions for initializing Filebeat template ([351f3ba](https://github.com/extra2000/elk-box/commit/351f3ba45edf4f3a5a9595638bc3bc385d12196d))
+* **README:** Add instructions for initializing Metricbeat template ([954c10c](https://github.com/extra2000/elk-box/commit/954c10cb961f23135e4c17758d3f7f53977d41cb))
+* **README:** Add instructions for initializing Packetbeat template ([918737d](https://github.com/extra2000/elk-box/commit/918737da72e348322fc5212d8a81d40a8cee9113))
+* **README:** Add instructions how to create systemd units for auto startup on boot ([18d089e](https://github.com/extra2000/elk-box/commit/18d089ebc978285242b8e2dface2c1af4db57db1))
+* **README:** Add instructions how to fix Kibana `Unable to update ui setting` ([2445a2f](https://github.com/extra2000/elk-box/commit/2445a2fce5ec1f7aac18d0e0724585a03937e846))
+* **README:** Set Fedora 34 as default Vagrant instruction ([e1a0cb5](https://github.com/extra2000/elk-box/commit/e1a0cb5879b82aa56c3e4194218e5df796028c9c))
+
 ## [3.0.0](https://github.com/extra2000/elk-box/compare/v2.4.0...v3.0.0) (2021-03-17)
 
 
