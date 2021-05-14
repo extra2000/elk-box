@@ -16,10 +16,12 @@ elk:
     elasticsearch:
       port:
         requests:
+          server_name: elasticsearch.example.lan
           container: 9200
           host: 9200
           ip: 0.0.0.0
         node_communications:
+          server_name: elasticsearch-node.example.lan
           container: 9300
           host: 9300
           ip: 0.0.0.0
@@ -38,10 +40,12 @@ elk:
     logstash:
       port:
         webapi:
+          server_name: logstash-api.example.lan
           container: 9600
           host: 9600
           ip: 0.0.0.0
         beats:
+          server_name: logstash-beats.example.lan
           container: 5044
           host: 5044
           ip: 0.0.0.0
@@ -70,6 +74,7 @@ elk:
     kibana:
       port:
         server:
+          server_name: kibana.example.lan
           container: 5601
           host: 5601
           ip: 0.0.0.0
