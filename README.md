@@ -141,7 +141,6 @@ $ cd ~/.config/systemd/user
 $ podman generate systemd --files --name elk-elasticsearch-pod
 $ podman generate systemd --files --name elk-logstash-pod
 $ podman generate systemd --files --name elk-kibana-pod
-$ systemctl --user daemon-reload
 $ systemctl --user enable pod-elk-elasticsearch-pod.service container-elk-elasticsearch-pod-es01.service pod-elk-logstash-pod.service container-elk-logstash-pod-ls01.service pod-elk-kibana-pod.service container-elk-kibana-pod-k01.service
 ```
 
@@ -149,7 +148,6 @@ Generate systemd unit for `nginx-pod` and enable it:
 ```
 $ cd ~/.config/systemd/user
 $ podman generate systemd --files --name nginx-pod
-$ systemctl --user daemon-reload
 $ systemctl --user enable pod-nginx-pod.service container-nginx-pod-srv01.service
 ```
 
