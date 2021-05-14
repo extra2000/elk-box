@@ -11,6 +11,7 @@ Developer box for ELK (Elasticsearch, Logstash, Kibana) stack.
 
 Copy example pillar file for ELK Stack. Optionally you may want to edit the values in the `elk.sls`:
 ```
+$ cp -v salt/roots/pillar/podman.sls.example salt/roots/pillar/podman.sls
 $ cp -v salt/roots/pillar/elk.sls.example salt/roots/pillar/elk.sls
 $ cp -v salt/roots/pillar/nginx.sls.example salt/roots/pillar/nginx.sls
 $ cp -v salt/roots/pillar/zabbix-agent.sls.example salt/roots/pillar/zabbix-agent.sls
