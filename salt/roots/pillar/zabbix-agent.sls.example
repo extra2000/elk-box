@@ -3,6 +3,7 @@
 
 zabbix_agent:
   lookup:
+    projectname: zabbix
     hostuser:
       name: vagrant
       group: vagrant
