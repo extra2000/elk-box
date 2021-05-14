@@ -8,6 +8,7 @@ install:
   - sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload vagrant-vbguest
   - git submodule update --init --recursive
 build_script:
+  - cp -v salt/roots/pillar/podman.sls.example salt/roots/pillar/podman.sls
   - cp -v salt/roots/pillar/elk.sls.example salt/roots/pillar/elk.sls
   - cp -v salt/roots/pillar/nginx.sls.example salt/roots/pillar/nginx.sls
   - cp -v salt/roots/pillar/zabbix-agent.sls.example salt/roots/pillar/zabbix-agent.sls
