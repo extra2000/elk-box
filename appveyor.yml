@@ -12,7 +12,6 @@ build_script:
   - cp -v salt/roots/pillar/elk.sls.example salt/roots/pillar/elk.sls
   - cp -v salt/roots/pillar/nginx.sls.example salt/roots/pillar/nginx.sls
   - cp -v salt/roots/pillar/zabbix-agent.sls.example salt/roots/pillar/zabbix-agent.sls
-  - cp -v salt/roots/formulas/nginx-formula/nginx/files/https.conf.example salt/roots/formulas/nginx-formula/nginx/files/https.conf
   - cp -v vagrant/examples/Vagrantfile.elk-box.fedora-33.x86_64.example vagrant/Vagrantfile.elk-box
   - sudo vagrant up --provider=libvirt elk-box
   - sudo vagrant ssh elk-box -- sudo salt-call state.highstate
