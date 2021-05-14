@@ -40,7 +40,7 @@ $ vagrant ssh elk-box -- sudo salt-call state.sls elk.config.nginx,nginx.service
 Deploy Elasticsearch. Then, set usernames and passwords:
 ```
 $ vagrant ssh elk-box -- sudo salt-call state.sls elk.service.elasticsearch
-$ vagrant ssh elk-box -- podman exec -it elasticsearch-pod-es01 elasticsearch-setup-passwords interactive
+$ vagrant ssh elk-box -- podman exec -it elk-elasticsearch-pod-es01 elasticsearch-setup-passwords interactive
 ```
 
 For testing purpose, use password `abcde12345` for all services as listed below. Please change to a secure password for production:
@@ -56,17 +56,17 @@ For testing purpose, use password `abcde12345` for all services as listed below.
 
 Setup Filebeat template:
 ```
-$ vagrant ssh elk-box -- podman run --rm --pod elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' --privileged docker.elastic.co/beats/filebeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
+$ vagrant ssh elk-box -- podman run --rm --pod elk-elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' --privileged docker.elastic.co/beats/filebeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
 ```
 
 Setup Metricbeat template:
 ```
-$ vagrant ssh elk-box -- podman run --rm --pod elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' docker.elastic.co/beats/metricbeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
+$ vagrant ssh elk-box -- podman run --rm --pod elk-elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' docker.elastic.co/beats/metricbeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
 ```
 
 Setup Packetbeat template:
 ```
-$ vagrant ssh elk-box -- podman run --rm --pod elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' --privileged docker.io/elastic/packetbeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
+$ vagrant ssh elk-box -- podman run --rm --pod elk-elasticsearch-pod --env ELASTICSEARCH_USERNAME='elastic' --env ELASTICSEARCH_PASSWORD='abcde12345' --privileged docker.io/elastic/packetbeat:7.12.1 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["127.0.0.1:9200"]'
 ```
 
 
@@ -138,11 +138,11 @@ $ vagrant ssh elk-box -- sudo salt-call state.sls elk.service.logstash
 Generate systemd units for ELK pods and enable them:
 ```
 $ cd ~/.config/systemd/user
-$ podman generate systemd --files --name elasticsearch-pod
-$ podman generate systemd --files --name logstash-pod
-$ podman generate systemd --files --name kibana-pod
+$ podman generate systemd --files --name elk-elasticsearch-pod
+$ podman generate systemd --files --name elk-logstash-pod
+$ podman generate systemd --files --name elk-kibana-pod
 $ systemctl --user daemon-reload
-$ systemctl --user enable pod-elasticsearch-pod.service container-elasticsearch-pod-es01.service pod-logstash-pod.service container-logstash-pod-ls01.service pod-kibana-pod.service container-kibana-pod-k01.service
+$ systemctl --user enable pod-elk-elasticsearch-pod.service container-elk-elasticsearch-pod-es01.service pod-elk-logstash-pod.service container-elk-logstash-pod-ls01.service pod-elk-kibana-pod.service container-elk-kibana-pod-k01.service
 ```
 
 Generate systemd unit for `nginx-pod` and enable it:
@@ -156,9 +156,8 @@ $ systemctl --user enable pod-nginx-pod.service container-nginx-pod-srv01.servic
 Generate systemd unit for `zabbix-agent-pod` and enable it:
 ```
 $ cd ~/.config/systemd/user
-$ podman generate systemd --files --name zabbix-agent-pod
-$ systemctl --user daemon-reload
-$ systemctl --user enable pod-zabbix-agent-pod.service container-zabbix-agent-pod-agent.service
+$ podman generate systemd --files --name zabbix-zabbix-agent-pod
+$ systemctl --user enable pod-zabbix-zabbix-agent-pod.service container-zabbix-zabbix-agent-pod-agent.service
 ```
 
 
