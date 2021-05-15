@@ -1,5 +1,50 @@
 # Changelog
 
+## [4.0.0](https://github.com/extra2000/elk-box/compare/v3.1.0...v4.0.0) (2021-05-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elk-formula:** submodule `elk-formula` has breaking changes.
+* **podman:** File `salt/roots/pillar/podman.sls` has been removed and ignored into `.gitignore`.
+* **nginx-formula:** submodule `nginx-formula has breaking changes.
+* **podman-formula:** Submodule `podman-formula` has major changes.
+
+### Features
+
+* **elk-formula:** upgrade from `v2.2.0` to `v3.0.0` ([1430771](https://github.com/extra2000/elk-box/commit/14307711cad4fa994bbe0c7860077bfffa739b4e))
+* **nginx-formula:** upgrade to `v3.0.0` ([6842894](https://github.com/extra2000/elk-box/commit/68428946386e6d0a5cabccbec6cfb59ae271443e))
+* **podman-formula:** Upgrade from `v2.2.2` to `v4.0.0` ([971430f](https://github.com/extra2000/elk-box/commit/971430f4ebe8e442efe42376e914a04e0f47d7aa))
+* **zabbix-agent-formula:** upgrade to `v5.0.0` ([861b481](https://github.com/extra2000/elk-box/commit/861b48164c6392f50b665309ddf27d25a0c4c0d5))
+
+
+### Continuous Integrations
+
+* **AppVeyor:** Add instruction to create `salt/roots/pillar/podman.sls` ([2482e6e](https://github.com/extra2000/elk-box/commit/2482e6e6a878f5c6a01c6e591940512856ba658e))
+* **AppVeyor:** Remove NGINX workaround ([341541b](https://github.com/extra2000/elk-box/commit/341541beb1e665ee7baec29a576bdb515427efaf))
+
+
+### Fixes
+
+* **salt/roots/pillar/elk.sls.example:** Change `cni-podman0` to `cni-podman1` to prevent network conflict with rootful Podman ([be2f67e](https://github.com/extra2000/elk-box/commit/be2f67e58ea133f4dc00617f418bcea4028328f1))
+
+
+### Code Refactoring
+
+* **podman:** Remove `salt/roots/pillar/podman.sls` and add into `.gitignore` ([a044fa9](https://github.com/extra2000/elk-box/commit/a044fa92a3e1d2a208fac9740173a03bb81cbddc))
+* **salt/roots/pillar/elk.sls.example:** Add `projectname`, prefix URL and pod names with `projectname` ([1ad888d](https://github.com/extra2000/elk-box/commit/1ad888dc1161ca53d39f40e5ab2d02ce62c0d0c0))
+* **salt/roots/pillar/elk.sls.example:** Add server name for NGINX HTTPS conf files ([ee35518](https://github.com/extra2000/elk-box/commit/ee35518f052485ec113e10400990819d78803850))
+* **salt/roots/pillar/elk.sls.example:** Change `podman-cluster` to `elk-clustor` ([55272c5](https://github.com/extra2000/elk-box/commit/55272c53224f374bf77fc46e4d6ae92d18fd584a))
+
+
+### Documentations
+
+* **podman:** Add `salt/roots/pillar/podman.sls.example` ([927acdd](https://github.com/extra2000/elk-box/commit/927acdd1ab003e1d8017488c4ec845621f473156))
+* **README:** Add instruction to create `salt/roots/pillar/podman.sls` ([ab8fe5a](https://github.com/extra2000/elk-box/commit/ab8fe5aa9ee696d6dbfa2d7020ffc640a347edf2))
+* **README:** Prefix ELK and Zabbix container names with default `projectname` ([ca984d5](https://github.com/extra2000/elk-box/commit/ca984d500e1f1a91f7518f6343027e272045c97e))
+* **README:** Remove `systemctl --user daemon-reload` ([d6a4762](https://github.com/extra2000/elk-box/commit/d6a4762c01dae193a420c72ee0dbd6ea9e03eca7))
+* **salt/roots/pillar/zabbix-agent.sls.example:** add `projectname` ([33c3821](https://github.com/extra2000/elk-box/commit/33c38213cc1093d99e3a7d21436b1fecf85b20d6))
+
 ## [3.1.0](https://github.com/extra2000/elk-box/compare/v3.0.0...v3.1.0) (2021-04-29)
 
 
