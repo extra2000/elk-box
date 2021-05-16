@@ -49,17 +49,8 @@ elk:
           container: 5044
           host: 5044
           ip: 0.0.0.0
-      confcfg:
-        output:
-          elasticsearch:
-            hosts:
-              - http://elk-elasticsearch-pod:9200
-            index: '%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}'
-            user: logstash_internal
-            password: abcde12345
       ymlcfg:
         node.name: logstash-pod
-        path.config: /usr/share/logstash/config/logstash.conf
         pipeline.workers: 1
         log.level: info
         http.host: 0.0.0.0
