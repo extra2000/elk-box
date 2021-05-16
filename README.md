@@ -127,6 +127,12 @@ Create a new user named `logstash_internal` with role `logstash_writer`. Use pas
 
 ## Deploying Logstash
 
+Create pipeline files based on the examples:
+```
+$ cp -v salt/roots/formulas/elk-formula/elk/files/pipelines/logstash.conf.example salt/roots/formulas/elk-formula/elk/files/pipelines/logstash.conf
+$ cp -v salt/roots/formulas/elk-formula/elk/files/pipelines.yml.example salt/roots/formulas/elk-formula/elk/files/pipelines.yml
+```
+
 Deploy Logstash:
 ```
 $ vagrant ssh elk-box -- sudo salt-call state.sls elk.service.logstash
