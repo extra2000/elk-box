@@ -127,14 +127,87 @@ Create a new user named `logstash_internal` with role `logstash_writer`. Use pas
 
 ## Deploying Logstash
 
-Create pipeline files based on the examples:
+Define pipelines file `salt/roots/formulas/elk-formula/elk/files/pipelines.yml`:
 ```
-$ cp -v salt/roots/formulas/elk-formula/elk/files/pipelines/logstash.conf.example salt/roots/formulas/elk-formula/elk/files/pipelines/logstash.conf
-$ cp -v salt/roots/formulas/elk-formula/elk/files/pipelines.yml.example salt/roots/formulas/elk-formula/elk/files/pipelines.yml
+- pipeline.id: main
+  path.config: "/usr/share/logstash/pipeline/logstash.conf"
+
+- pipeline.id: csv
+  path.config: "/usr/share/logstash/pipeline/csv.conf"
+
+- pipeline.id: output
+  path.config: "/usr/share/logstash/pipeline/output.conf"
+```
+
+Create pipeline file `salt/roots/formulas/elk-formula/elk/files/pipelines/logstash.conf`:
+```
+input {
+  beats {
+    port => 5044
+  }
+}
+
+output {
+  pipeline {
+    send_to => [
+      "pipeline-csv"
+    ]
+  }
+}
+```
+
+Create pipeline file `salt/roots/formulas/elk-formula/elk/files/pipelines/csv.conf`:
+```
+input {
+  pipeline {
+    address => "pipeline-csv"
+  }
+}
+
+filter {
+  if [fields][testlog] {
+    csv {
+      autogenerate_column_names => false
+      columns => ["training.epoch", "training.accuracy"]
+    }
+    mutate {
+      convert => {
+        "training.epoch" => "integer"
+        "training.accuracy" => "float"
+      }
+    }
+  }
+}
+
+output {
+  pipeline {
+    send_to => ["pipeline-output"]
+  }
+}
+```
+
+Create pipeline file `salt/roots/formulas/elk-formula/elk/files/pipelines/output.conf`:
+```
+input {
+  pipeline {
+    address => "pipeline-output"
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ['http://elk-elasticsearch-pod:9200']
+    index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    user => "logstash_internal"
+    password => "abcde12345"
+  }
+}
 ```
 
 Deploy Logstash:
 ```
+$ vagrant rsync
+$ vagrant ssh elk-box -- sudo salt-call state.sls elk.config
 $ vagrant ssh elk-box -- sudo salt-call state.sls elk.service.logstash
 ```
 
