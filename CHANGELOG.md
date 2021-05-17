@@ -1,5 +1,39 @@
 # Changelog
 
+## [5.0.0](https://github.com/extra2000/elk-box/compare/v4.0.0...v5.0.0) (2021-05-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **logstash:** structure `salt/roots/pillar/elk.sls.example` has changed
+* **elk-formula:** replace single `logstash.conf` with pipelines
+
+### Features
+
+* **elk-formula:** upgrade to `v4.0.0` ([c06659d](https://github.com/extra2000/elk-box/commit/c06659db5b6e0f51dad6155e4eaef87cd8507182))
+
+
+### Fixes
+
+* **nginx-formula:** patch update to `v3.0.1` ([4619483](https://github.com/extra2000/elk-box/commit/46194835207ae4b65fd14f03d37c731f004b6b48))
+
+
+### Continuous Integrations
+
+* **AppVeyor:** add instructions to define logstash pipelines ([836a8db](https://github.com/extra2000/elk-box/commit/836a8dbca5fc3fe841f388d08a985be576c9aca4))
+* **AppVeyor:** change from Fedora 33 to Fedora 34 ([43f5288](https://github.com/extra2000/elk-box/commit/43f5288256fa042afc25ed611ccea54c5fa09511))
+
+
+### Documentations
+
+* **README:** add instructions to create logstash pipelines ([84394e4](https://github.com/extra2000/elk-box/commit/84394e4d4fcfd0a4bb1656deebc00d789f0da63e))
+* **README:** add instructions to define logstash pipelines ([85bcac4](https://github.com/extra2000/elk-box/commit/85bcac44fb3f3c69a01e2407b447dd9998f4630b))
+
+
+### Code Refactoring
+
+* **logstash:** remove logstash config values in `salt/roots/pillar/elk.sls.example` that are related to `logstash.conf` no longer present ([ce6e7c6](https://github.com/extra2000/elk-box/commit/ce6e7c68a98d9fe65f3c31475f45287ca93df026))
+
 ## [4.0.0](https://github.com/extra2000/elk-box/compare/v3.1.0...v4.0.0) (2021-05-15)
 
 
